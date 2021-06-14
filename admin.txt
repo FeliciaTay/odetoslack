@@ -1,0 +1,28 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Set questions"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Submit"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "ask_password"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please provide the admin password."
+			}
+		}
+	],
+	"type": "modal"
+}

@@ -1,0 +1,174 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": " Set questions"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Submit"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "input",
+			"element": {
+				"type": "static_select",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select a set",
+					"emoji": true
+				},
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "*this is plain_text text*",
+							"emoji": true
+						},
+						"value": "value-0"
+					}
+				],
+				"action_id": "static_select-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please select the set.",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "question_id"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please input the question id. (Please make sure to use a new question id.)",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "question_text"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please input the question.",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "explanation_text"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please input the explanation.",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "option1"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please specify Option 1. (Put NA if not applicable)",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "option2"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please specify Option 2. (Put NA if not applicable)",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "option3"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please specify Option 3. (Put NA if not applicable)",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "option4"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please specify Option 4. (Put NA if not applicable)",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "radio_buttons",
+				"options": [
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Option 1",
+							"emoji": true
+						},
+						"value": "option1-but"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Option 2",
+							"emoji": true
+						},
+						"value": "option2-but"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Option 3",
+							"emoji": true
+						},
+						"value": "option3-but"
+					},
+					{
+						"text": {
+							"type": "plain_text",
+							"text": "Option 4",
+							"emoji": true
+						},
+						"value": "option4-but"
+					}
+				],
+				"action_id": "radio_buttons-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Which of the above options will be the correct answer?",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

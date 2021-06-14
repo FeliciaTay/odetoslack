@@ -1,0 +1,41 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Statistics results"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Close"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "Number of attempts:",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "Number of correct attempts:",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "Percentage of correct answers:",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

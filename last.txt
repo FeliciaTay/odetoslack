@@ -1,0 +1,25 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Unable to proceed"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Close"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "You have reached the last question. Please press on 'Close' to return to the previous window and press 'Submit'.",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

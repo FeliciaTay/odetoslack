@@ -1,0 +1,33 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Quiz!"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Close"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "You have gotten it correct!",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "You may press 'Close' to close this window and press 'Next question' to move on.",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

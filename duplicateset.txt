@@ -1,0 +1,25 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Unable to proceed"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Close"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "You have keyed an existing set id. Please use a new set id.",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

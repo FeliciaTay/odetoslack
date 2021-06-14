@@ -1,0 +1,25 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Unable to procced"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Close"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "This is the first question. Please press on 'Close' to return to the previous window and press on 'Next question'.",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

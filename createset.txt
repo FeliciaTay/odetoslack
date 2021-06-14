@@ -1,0 +1,41 @@
+{
+	"title": {
+		"type": "plain_text",
+		"text": "Create set"
+	},
+	"submit": {
+		"type": "plain_text",
+		"text": "Submit"
+	},
+	"close": {
+		"type": "plain_text",
+		"text": "Cancel"
+	},
+	"blocks": [
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "set_id"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please input the set id.",
+				"emoji": true
+			}
+		},
+		{
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "set_title"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Please input the set title.",
+				"emoji": true
+			}
+		}
+	],
+	"type": "modal"
+}

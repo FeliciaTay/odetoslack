@@ -1,0 +1,17 @@
+{
+	"response_action": "push",
+	"view": {
+    		"type": "modal",
+    		"title": {
+      			"type": "plain_text",
+      			"text": "Quiz!"
+    		},
+		"submit": {
+			"type": "plain_text",
+			"text": "Submit"
+		},
+    		"blocks": [
+
+    		]
+  	}
+}
