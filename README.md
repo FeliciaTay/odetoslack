@@ -89,9 +89,14 @@ Instructions:
     - Engine type: MySQL
     - Enable public access under 'Connectivity'
     
-    You will need to take note of your 'DB instance identifier', 'Master username' and your 'Master password'.
+    You will need to take note of the 'Master username' and your 'Master password'.
+
+12. After the creation of the database, click into it and under 'Connectivity & security', note down the endpoint URL.
     
-12. 
+13. Connect to the database using any tool that allows MYSQL access, like MySQL workbench. The host will be the URL obtained from Step 12. <br/>
+    Run the code found in *example.txt* in the repository folder.
+
+14. Open up *code.py* in the repository document.
 
 
 
