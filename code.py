@@ -21,13 +21,8 @@ conn = pymysql.connect(
 cur=conn.cursor()
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == "POST":
-        details = request.form
-        firstName = details['fname']
-        lastName = details['lname']
-        return "The database has been updated!"
-    return render_template('index.html')
+def helloWorld():
+    return 'Hi there!'
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def runtest():
