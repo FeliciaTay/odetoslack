@@ -80,7 +80,7 @@ Instructions:
     ```
     zappa deploy dev
     ```
-    You should see a success message with a URL stated. Take note of this URL. <br/><br/>
+    You should see a success message with a URL stated. Take note of this HTTP endpoint. <br/><br/>
     From this point onwards, when changes are made to the *app.py* file, ```zappa update dev``` needs to be run to update the changes. <br/><br/> 
     Note: For the above, ```dev``` is to be replaced with what you named your environment in Step 6.
 
@@ -94,11 +94,41 @@ Instructions:
 12. After the creation of the database, click into it and under 'Connectivity & security', note down the endpoint URL.
     
 13. Connect to the database using any tool that allows MYSQL access, like MySQL workbench. The host will be the URL obtained from Step 12. <br/>
-    Run the code found in *example.txt* in the repository folder.
+    Run the code found in *example.txt* in the repository folder, except the last line of code:
+    ```
+    INSERT INTO SUBMISSION_LOG (submission_id, slack_id, question_id, timestp, rationale) VALUE
+    ("0", "10", "101", 'nil', "nil");
+    ```
+    IMPORTANT: The third field ```"101"``` is to be replaced by the question id of the first question inputted into the database, before this line of code can be run.
 
-14. Open up *code.py* in the repository document.
+14. Head to [this link](https://api.slack.com/apps) to start creating the Slack app. Pick 'From scratch' and give your app a name. Select the workspace to install the app to. 
 
+15. Under 'Add features and functionality', click on 'Slash commands' and create the following commands:
+    - ```/quiz```
+    - ```/createset```
+    - ```/setquestions```
+    - ```/stats```
+    
+    For all request URLs, it will be the HTTP endpoint from Step 10, followed by the command itself. An example would be 'https://xxxxxxxx.execute-api.ap-southeast-1.amazonaws.com/dev/quiz'. <br/>
+    Necessary changes have to be made to *code.py* if different commands are to be used.
+    
+16. On the left panel, click into 'Interactivity & Shortcuts' and under 'Interactivity', add the same HTTP endpoint followed by '/interactive'. An example would be 'https://xxxxxxxx.execute-api.ap-southeast-1.amazonaws.com/dev/interactive'. 
 
+17. On the left panel, click into 'App Home' as well as 'Edit' under 'App Display Name' to add a bot user. 
+
+18. On the left panel, click into 'Install App' under 'Settings' and approve the authorisation. You will see a bot user token. Take note of it.
+
+19. Head back to the AWS console and search for 'AWS Lambda' in the search box. Click on the Zappa deployment set up and under the 'Configuration' tab, go to 'Environmental variables'. Set the following variables. 
+    - Key: USER, Value: (this is the master user of the database created in Step 11)
+    - Key: PASSWORD, Value: (this is the master password of the database created in Step 11)
+    - Key: TOKEN, Value: (this is the token obtained from Step 18)
+    - Key: SET_PASSWORD, Value: (this is the password that only allows teachers to create sets/ set questions/ see statistics)
+
+20. Open up *code.py* in the repository document. Add in the database URL from Step 12 into Line 14, as well as the database ```quiz``` in Line 18. The name of the database can differ based on the SQL code you run in Step 13.
+
+21. Copy and paste the code in *code.py* into *app.py*. Save the changes and remember to run ```zappa update dev``` in the command prompt to update the changes.
+
+22. 
 
 
 
