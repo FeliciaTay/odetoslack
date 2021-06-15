@@ -39,7 +39,23 @@ Instructions:
     aws_access_key_id = XXXXXXXX
     aws_secret_access_key = XXXXXXXX
    ```  
-6. Return to the repository directory and run ```zappa init```. Follow through the configuration process to finish setting up the Zappa project. The below is an example of what could be set:
+   
+6. Create a new file *app.py* in the repository directory. Paste the following code within:
+    ```
+   from flask import Flask
+   app = Flask(__name__)
+   
+   @app.route('/')
+   def hello_world():
+    return '<h1>Yeah, that is Zappa! Zappa! Zap! Zap!</h1>'
+   
+   # We only need this for local development.
+   if __name__ == '__main__':
+    app.run()
+   ```
+   The above is an example of a simple Flask application.
+
+7. Next, on the command prompt, run ```zappa init``` in the repository directory. Follow through the configuration process to finish setting up the Zappa project. The below is an example of what could be set:
     ```
    environment: dev
    bucket: zappabucket346
@@ -48,25 +64,34 @@ Instructions:
    ``` 
    For the app's function, it must end with ```.app```.
 
-7. A *zappa_settings.json* file has been created. Check that```"profile name:"``` is set to ```"default"```, which corresponds to the name defined in the square brackets specified in *.aws/credentials*. <br/>
+8. A *zappa_settings.json* file has been created. Check that```"profile name:"``` is set to ```"default"```, which corresponds to the name defined in the square brackets specified in *.aws/credentials*. <br/>
     Add the following line of code within as well:
     ```
    "aws_region": "ap-southeast-1"
    ```
    The above can differ according to the region you are in.
 
-8. Run the following line of code in command prompt:
+9. Run the following line of code in command prompt:
     ```
    pip freeze > requirements.txt
    ```
 
-9. Next, run the following command:
+10. Next, run the following command:
     ```
-   zappa deploy dev
-   ```
-    ```dev``` is to be replaced with what you named your environment in Step 6.
+    zappa deploy dev
+    ```
+    You should see a success message with a URL stated. Take note of this URL. <br/><br/>
+    From this point onwards, when changes are made to the *app.py* file, ```zappa update dev``` needs to be run to update the changes. <br/><br/> 
+    Note: For the above, ```dev``` is to be replaced with what you named your environment in Step 6.
 
-10.
+11. Now, head back to the AWS console and search for 'AWS RDS' in the search box. Click on 'Create database' and follow through the configurations to set up a database. <br/>
+    The compulsory settings are: 
+    - Engine type: MySQL
+    - Enable public access under 'Connectivity'
+    
+    You will need to take note of your 'DB instance identifier', 'Master username' and your 'Master password'.
+    
+12. 
 
 
 
