@@ -128,7 +128,9 @@ Instructions:
 
 21. Copy and paste the code in *code.py* into *app.py*. Save the changes and remember to run ```zappa update dev``` in the command prompt to update the changes.
 
-22. 
+22. Congrats, you have finished the setting up!
+
+!!! Please remember to run 
 
 
 
