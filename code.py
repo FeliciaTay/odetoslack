@@ -11,11 +11,11 @@ app = Flask(__name__)
 client = WebClient(token=os.environ.get('TOKEN'))
 
 conn = pymysql.connect(
-        host= 'odetoslack.cwpvmfhedbxz.ap-southeast-1.rds.amazonaws.com', 
+        host= '', 
         port = 3306,
         user = os.environ.get('USER'), 
         password = os.environ.get('PASSWORD'),
-        db = 'quizzes',
+        db = '',
         autocommit=True
         )
 cur=conn.cursor()
