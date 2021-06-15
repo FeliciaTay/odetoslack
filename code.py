@@ -225,7 +225,7 @@ def testInput():
             else:
                 with open("httprequest.txt", "r") as file:
                     json_object = json.load(file)
-                    if inputted == "admin1234":
+                    if inputted == os.environ.get('SET_PASSWORD'):
                         with open("createset.txt", "r") as reaction_file:
                             reaction_object = json.load(reaction_file)
                             json_object["view"] = reaction_object
