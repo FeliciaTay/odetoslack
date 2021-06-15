@@ -20,7 +20,7 @@ Instructions:
    pip install Flask==1.1.2
    pip install zappa
    pip install slack_sdk
-   pip install PyMySL
+   pip install PyMySQL
    ```
 
 5. Log into your AWS account. AWS Access Keys have to be created first. The below steps are referenced from [this link](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html). <br/>
@@ -44,11 +44,11 @@ Instructions:
    environment: dev
    bucket: zappabucket346
    app's function: app.app
-   whether to deploy the application globally: no
+   whether to deploy the application globally: n
    ``` 
    For the app's function, it must end with ```.app```.
 
-7. A *zappa_settings.json* file has been created. Change ```"profile name:"``` to ```"default"``` to correspond to the name defined in the square brackets specified in *.aws/credentials*. <br/>
+7. A *zappa_settings.json* file has been created. Check that```"profile name:"``` is set to ```"default"```, which corresponds to the name defined in the square brackets specified in *.aws/credentials*. <br/>
     Add the following line of code within as well:
     ```
    "aws_region": "ap-southeast-1"
@@ -60,8 +60,13 @@ Instructions:
    pip freeze > requirements.txt
    ```
 
-10.
+9. Next, run the following command:
+    ```
+   zappa deploy dev
+   ```
+    ```dev``` is to be replaced with what you named your environment in Step 6.
 
+10.
 
 
 
