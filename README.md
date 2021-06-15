@@ -94,12 +94,13 @@ Instructions:
 12. After the creation of the database, click into it and under 'Connectivity & security', note down the endpoint URL.
     
 13. Connect to the database using any tool that allows MYSQL access, like MySQL workbench. The host will be the URL obtained from Step 12. <br/>
-    Run the code found in *example.txt* in the repository folder, except the last line of code:
+    Run all the code found in *example.txt* in the repository folder. <br/>
+    <b>IMPORTANT:</b> On the database tool, you will need to create a set under ```QUESTION_SET```, and a question under ```QUESTIONS```, together with its options under ```OPTIONS``` and the answer under ```ANSWERS```. Then, the below code can be run:
     ```
     INSERT INTO SUBMISSION_LOG (submission_id, slack_id, question_id, timestp, rationale) VALUE
     ("0", "10", "101", 'nil', "nil");
     ```
-    IMPORTANT: The third field ```"101"``` is to be replaced by the question id of the first question inputted into the database, before this line of code can be run.
+    The third field ```"101"``` is to be replaced by the question id of the first question inputted into the database, before this line of code can be run.
 
 14. Head to [this link](https://api.slack.com/apps) to start creating the Slack app. Pick 'From scratch' and give your app a name. Select the workspace to install the app to. 
 
@@ -128,11 +129,7 @@ Instructions:
 
 21. Copy and paste the code in *code.py* into *app.py*. Save the changes and remember to run ```zappa update dev``` in the command prompt to update the changes.
 
-22. Congrats, you have finished the setting up!
-
-!!! Please remember to run 
-
-
+22. Congrats, you have finished the setting up! Enjoy quiz-zing!
 
 # Acknowledgements
 Credits to:
