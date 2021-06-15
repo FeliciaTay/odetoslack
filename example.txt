@@ -54,6 +54,3 @@ CREATE TABLE SELECTION_LOG (
     FOREIGN KEY (submission_id) REFERENCES SUBMISSION_LOG(submission_id),
     FOREIGN KEY (opt_id) REFERENCES OPTIONS(opt_id)
 );
-
-INSERT INTO SUBMISSION_LOG (submission_id, slack_id, question_id, timestp, rationale) VALUE
-("0", "10", "101", 'nil', "nil");
