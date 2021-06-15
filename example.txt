@@ -1,0 +1,59 @@
+CREATE DATABASE quiz;
+
+USE quiz;
+CREATE TABLE QUESTION_SET (
+	set_id VARCHAR(255) PRIMARY KEY,
+    set_title VARCHAR(255), 
+    created_date VARCHAR(255)
+);
+
+CREATE TABLE QUESTIONS (
+	question_id VARCHAR(255) PRIMARY KEY,
+    set_id VARCHAR(255), 
+    ask_rationale VARCHAR(255), 
+    question_text VARCHAR(255), 
+    explanation_text VARCHAR(255),
+    FOREIGN KEY (set_id) REFERENCES QUESTION_SET(set_id)
+);
+
+CREATE TABLE CONCEPT (
+	question_id VARCHAR(255),
+    concept VARCHAR(255), 
+    PRIMARY KEY (question_id, concept),
+    FOREIGN KEY (question_id) REFERENCES QUESTIONS(question_id)
+);
+
+CREATE TABLE OPTIONS (
+	opt_id VARCHAR(255) PRIMARY KEY,
+    question_id VARCHAR(255),
+    opt_text VARCHAR(255),
+    FOREIGN KEY (question_id) REFERENCES QUESTIONS(question_id)
+);
+
+CREATE TABLE ANSWERS (
+	question_id VARCHAR(255),
+	answer VARCHAR(255),
+	PRIMARY KEY (question_id, answer),
+	FOREIGN KEY (question_id) REFERENCES QUESTIONS(question_id),
+	FOREIGN KEY (answer) REFERENCES OPTIONS(opt_id)
+);
+
+CREATE TABLE SUBMISSION_LOG (
+	submission_id VARCHAR(255) PRIMARY KEY,
+	slack_id VARCHAR(255),
+	question_id VARCHAR(255),
+	timestp VARCHAR(255),
+	rationale VARCHAR(255),
+	FOREIGN KEY (question_id) REFERENCES QUESTIONS(question_id)
+);
+
+CREATE TABLE SELECTION_LOG (
+	submission_id VARCHAR(255),
+    opt_id VARCHAR(255),
+    PRIMARY KEY (submission_id, opt_id),
+    FOREIGN KEY (submission_id) REFERENCES SUBMISSION_LOG(submission_id),
+    FOREIGN KEY (opt_id) REFERENCES OPTIONS(opt_id)
+);
+
+INSERT INTO SUBMISSION_LOG (submission_id, slack_id, question_id, timestp, rationale) VALUE
+("0", "10", "101", 'nil', "nil");
