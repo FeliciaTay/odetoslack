@@ -136,10 +136,11 @@ Instructions: <br/>
 
 21. Copy and paste the code in *code.py* into *app.py*. Save the changes and remember to run ```zappa update dev``` in the command prompt to update the changes.
 
-22. Congrats, you have finished the setting up! You can nnow try the app in Slack, enjoy quiz-zing!
+22. Congrats, you have finished the setting up! You can now try the app in Slack, enjoy quiz-zing!
 
 # Note for teachers
-The following is the tables that will be set up in MySQL.
+The following shows the tables that will be set up in MySQL.
+![database modelling](./image/database.jpg)
 
 # Acknowledgements
 Credits to:
