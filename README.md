@@ -4,12 +4,13 @@ This is a Slack application which will be deployed through Zappa. Zappa is a Pyt
 odetoslack is an education tool that allows students to answer quiz questions set by teachers. Interfaces have been added to allow teachers to create question sets, store questions as well as see statistics of students' attempts, all within Slack itself!
 
 ## Setting up
+Note: Only Python 3.6, 3.7 or 3.8 is supported.
+
 The below instructions include the setting up of access key on AWS (Step 5), the setting up of the MySQL database needed (Steps 11-13) and the creation of the application on Slack itself (Steps 14-18). If already completed prior, the respective steps can omitted. <br/>
 Basic SQL and Python knowledge is assumed.
 
 Instructions: <br/>
 (This set of instructions is last updated on 16.6.2021) <br/>
-Note: Only Python 3.6, 3.7 or 3.8 is supported.
 
 1. Clone this repository. 
 
