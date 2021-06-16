@@ -1,7 +1,17 @@
 # odetoslack 
+## Introduction
 This is a Slack application which will be deployed through Zappa. Zappa is a Python package that bundles up the web application written in Flask and deploys to AWS Lambda. The backend database involved is MySQL database, which can be hosted on AWS RDS.
 
-odetoslack is an education tool that allows students to answer quiz questions set by teachers. Interfaces have been added to allow teachers to create question sets, store questions as well as see statistics of students' attempts, all within Slack itself!
+odetoslack is an education tool that allows students to answer quiz questions set by teachers. Interfaces have been added to allow teachers to create question sets, store questions as well as see statistics of students' attempts, all within Slack itself! 
+
+## How to use the application
+After setting up the whole application (refer to the next section), the following commands can be typed in from anywhere in the Slack workspace which the application is installed to:
+- ```/quiz```: to activate the quiz (for students)
+- ```/createset```: to create a question set (for teachers)
+- ```/setquestions```: to create a question (for teachers)
+- ```/stats```: to see the statistics of students' attempts (for teachers)
+
+The last 3 commands can only be accessed by teachers, through the introduction of an additional interface to ask for a password before continuing on.
 
 ## Setting up
 Note: Only Python 3.6, 3.7 or 3.8 is supported.
@@ -138,9 +148,12 @@ Instructions: <br/>
 
 22. Congrats, you have finished the setting up! You can now try the app in Slack, enjoy quiz-zing!
 
-# Note for teachers
-The following shows the tables that will be set up in MySQL. Take note of the primary and foreign keys, for example, to set a question in ```QUESTIONS```, it's set_id must be an existing id in ```QUESTION_SET```.
+## Note for teachers
+The following shows the tables that will be set up in MySQL (some sample data is included). Take note of the primary and foreign keys, for example, to set a question in ```QUESTIONS```, it's set_id must be an existing id in ```QUESTION_SET```. <br/>
 ![database modelling](./image/database.jpg)
+It is advisable to use numbers to denote set ids, question ids and option ids. An example would be ```set_id``` being ```1```, ```question_id``` being ```101```as well as ```opt_id``` being ```101.1```, ```101.2```, ```101.3``` and ```101.4```.
+
+For the ```CONCEPTS``` table, no interface was created for it for the input of data. It was not included in ```/setquestions``` to prevent clutter. Entries can be inputted manually using any database tool like MySQL workbench.
 
 # Acknowledgements
 Credits to:
