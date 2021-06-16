@@ -158,5 +158,6 @@ It is advisable to use numbers to denote set ids, question ids and option ids. A
 For the ```CONCEPTS``` table, no interface was created for it for the input of data. It was not included in ```/setquestions``` to prevent clutter. Entries can be inputted manually using any database tool like MySQL workbench.
 
 # Acknowledgements
-Credits to:
-https://pythonforundergradengineers.com/deploy-serverless-web-app-aws-lambda-zappa.html
+Credits to: <br/>
+https://pythonforundergradengineers.com/deploy-serverless-web-app-aws-lambda-zappa.html <br/>
+https://readthedocs.org/projects/python-slackclient/downloads/pdf/stable/
