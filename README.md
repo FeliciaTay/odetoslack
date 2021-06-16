@@ -1,11 +1,16 @@
 # odetoslack 
-This is a Slack application which will be deployed through Zappa. Zappa is a Python package that bundles up the web application written in Flask and deploys to AWS Lambda. The backend database can be hosted on AWS RDS, using MySQL database.
+This is a Slack application which will be deployed through Zappa. Zappa is a Python package that bundles up the web application written in Flask and deploys to AWS Lambda. The backend database involved is MySQL database, which can be hosted on AWS RDS.
+
+odetoslack is an education tool that allows students to answer quiz questions set by teachers. Interfaces have been added to allow teachers to create question sets, store questions as well as see statistics of students' attempts, all within Slack itself!
 
 ## Setting up
-The below instructions include the setting up of AWS Lambda and AWS RDS. If an AWS group has already been set up, Step 5 can be omitted.
+The below instructions include the setting up of access key on AWS (Step 5), the setting up of the MySQL database needed (Steps 11-13) and the creation of the application on Slack itself (Steps 14-18). If already completed prior, the respective steps can omitted. <br/>
+Basic SQL and Python knowledge is assumed.
+
+Instructions: <br/>
+(This set of instructions is last updated on 16.6.2021) <br/>
 Note: Only Python 3.6, 3.7 or 3.8 is supported.
 
-Instructions:
 1. Clone this repository. 
 
 2. Using command prompt, navigate to the repository folder.
@@ -31,7 +36,7 @@ Instructions:
     e. Give your new user a name and select the access type to be 'Programmatic access'. <br/><br/>
     f. Continuing on, add this user to the group just created. <br/><br/>
     g. Tags are optional. Moving on, review the details and click on 'Create user'. <br/><br/>
-    h. Upon seeing the green Success screen, copy the access key id and secret access key to *~/.aws/credentials* (need to create a new folder and a new file). The secret access key will not be shown again. Take caution that the *.aws/* directory needs to be in the home directory and the *credentials* file do not have any extensions. <br/>
+    h. Upon seeing the green Success screen, copy the access key id and secret access key to *~/.aws/credentials* (need to create a new folder and a new file). The secret access key will not be shown again. Take caution that the *.aws/* directory needs to be in your home directory and the *credentials* file do not have any extensions. <br/>
     DO NOT save the directory under version control. <br/>
     In the *credentials* file, copy and paste the text below and modify the XXXXXXXX portions accordingly.<br/>
     ```
@@ -40,14 +45,14 @@ Instructions:
     aws_secret_access_key = XXXXXXXX
    ```  
    
-6. Create a new file *app.py* in the repository directory. Paste the following code within:
+6. Create a new *app.py* file in the repository directory. Paste the following code within:
     ```
    from flask import Flask
    app = Flask(__name__)
    
    @app.route('/')
    def hello_world():
-    return '<h1>Yeah, that is Zappa! Zappa! Zap! Zap!</h1>'
+    return '<h1>Hello there!</h1>'
    
    # We only need this for local development.
    if __name__ == '__main__':
@@ -64,7 +69,7 @@ Instructions:
    ``` 
    For the app's function, it must end with ```.app```.
 
-8. A *zappa_settings.json* file has been created. Check that```"profile name:"``` is set to ```"default"```, which corresponds to the name defined in the square brackets specified in *.aws/credentials*. <br/>
+8. A *zappa_settings.json* file has been created. Check that ```"profile name:"``` is set to ```"default"```, which corresponds to the name defined in the square brackets specified in *~/.aws/credentials*. <br/>
     Add the following line of code within as well:
     ```
    "aws_region": "ap-southeast-1"
@@ -76,13 +81,13 @@ Instructions:
    pip freeze > requirements.txt
    ```
 
-10. Next, run the following command:
+10. Lastly, run the following command:
     ```
     zappa deploy dev
     ```
     You should see a success message with a URL stated. Take note of this HTTP endpoint. <br/><br/>
     From this point onwards, when changes are made to the *app.py* file, ```zappa update dev``` needs to be run to update the changes. <br/><br/> 
-    Note: For the above, ```dev``` is to be replaced with what you named your environment in Step 6.
+    Note: For the above, ```dev``` is to be replaced with what you named your environment in Step 7.
 
 11. Now, head back to the AWS console and search for 'AWS RDS' in the search box. Click on 'Create database' and follow through the configurations to set up a database. <br/>
     The compulsory settings are: 
@@ -94,13 +99,14 @@ Instructions:
 12. After the creation of the database, click into it and under 'Connectivity & security', note down the endpoint URL.
     
 13. Connect to the database using any tool that allows MYSQL access, like MySQL workbench. The host will be the URL obtained from Step 12. <br/>
-    Run all the code found in *example.txt* in the repository folder. <br/>
-    <b>IMPORTANT:</b> On the database tool, you will need to create a set under ```QUESTION_SET```, and a question under ```QUESTIONS```, together with its options under ```OPTIONS``` and the answer under ```ANSWERS```. Then, the below code can be run:
+    Copy and run all the code found in *example.txt* in the repository folder. <br/>
+    <b>IMPORTANT:</b> On the database tool, you will need to create a set under ```QUESTION_SET```, and a question under ```QUESTIONS```, together with its options under ```OPTIONS``` and the answer under ```ANSWERS```. When all is done, run the below code:
     ```
     INSERT INTO SUBMISSION_LOG (submission_id, slack_id, question_id, timestp, rationale) VALUE
     ("0", "10", "101", 'nil', "nil");
     ```
-    The third field ```"101"``` is to be replaced by the question id of the first question inputted into the database, before this line of code can be run.
+    The third field ```"101"``` is to be replaced by the question id of the first question inputted into the database. <br/>
+    This line of code is a dummy entry, which serves to act as a counter for ```submission_id```.
 
 14. Head to [this link](https://api.slack.com/apps) to start creating the Slack app. Pick 'From scratch' and give your app a name. Select the workspace to install the app to. 
 
@@ -123,13 +129,16 @@ Instructions:
     - Key: USER, Value: (this is the master user of the database created in Step 11)
     - Key: PASSWORD, Value: (this is the master password of the database created in Step 11)
     - Key: TOKEN, Value: (this is the token obtained from Step 18)
-    - Key: SET_PASSWORD, Value: (this is the password that only allows teachers to create sets/ set questions/ see statistics)
+    - Key: SET_PASSWORD, Value: (this is the password that only allows teachers to create sets/ set questions/ see statistics; you can set this yourself)
 
 20. Open up *code.py* in the repository document. Add in the database URL from Step 12 into Line 14, as well as the database ```quiz``` in Line 18. The name of the database can differ based on the SQL code you run in Step 13.
 
 21. Copy and paste the code in *code.py* into *app.py*. Save the changes and remember to run ```zappa update dev``` in the command prompt to update the changes.
 
-22. Congrats, you have finished the setting up! Enjoy quiz-zing!
+22. Congrats, you have finished the setting up! You can nnow try the app in Slack, enjoy quiz-zing!
+
+# Note for teachers
+The following is the tables that will be set up in MySQL.
 
 # Acknowledgements
 Credits to:
