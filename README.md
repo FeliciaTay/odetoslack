@@ -139,7 +139,7 @@ Instructions: <br/>
 22. Congrats, you have finished the setting up! You can now try the app in Slack, enjoy quiz-zing!
 
 # Note for teachers
-The following shows the tables that will be set up in MySQL.
+The following shows the tables that will be set up in MySQL. Take note of the primary and foreign keys, for example, to set a question in ```QUESTIONS```, it's set_id must be an existing id in ```QUESTION_SET```.
 ![database modelling](./image/database.jpg)
 
 # Acknowledgements
