@@ -5,13 +5,15 @@ This is a Slack application which will be deployed through Zappa. Zappa is a Pyt
 odetoslack is an education tool that allows students to answer quiz questions set by teachers. Interfaces have been added to allow teachers to create question sets, store questions as well as see statistics of students' attempts, all within Slack itself! 
 
 ## How to use the application
-After setting up the whole application (refer to the next section), the following commands can be typed in from anywhere in the Slack workspace which the application is installed to:
+After setting up the whole application (refer to the next section), the following commands can be typed in from anywhere in the Slack workspace where the application is installed to:
 - ```/quiz```: to activate the quiz (for students)
 - ```/createset```: to create a question set (for teachers)
 - ```/setquestions```: to create a question (for teachers)
 - ```/stats```: to see the statistics of students' attempts (for teachers)
 
 The last 3 commands can only be accessed by teachers, through the introduction of an additional interface to ask for a password before continuing on.
+
+When students attempt the quiz, they will be notified of the correctness of their answers and in the event that it is wrong, they are able to see the explanation inputted by the teacher. All their attempts will be stored inside the database, which will allow teachers to be able to monitor their learning.
 
 ## Setting up
 Note: Only Python 3.6, 3.7 or 3.8 is supported.
