@@ -1,8 +1,8 @@
 # odetoslack 
 ## Introduction
-This is a Slack application which will be deployed through Zappa. Zappa is a Python package that bundles up the web application written in Flask and deploys to AWS Lambda. The backend database involved is MySQL database, which can be hosted on AWS RDS.
-
 odetoslack is an education tool that allows students to answer quiz questions set by teachers. Interfaces have been added to allow teachers to create question sets, store questions as well as see statistics of students' attempts, all within Slack itself! 
+
+This is a Slack application which will be deployed through Zappa. Zappa is a Python package that bundles up the web application written in Flask and deploys to AWS Lambda. The backend database involved is MySQL database, which can be hosted on AWS RDS.
 
 ## How to use the application
 After setting up the whole application (refer to the next section), the following commands can be typed in from anywhere in the Slack workspace where the application is installed to:
