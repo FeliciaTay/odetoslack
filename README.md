@@ -151,8 +151,8 @@ Instructions: <br/>
 22. Congrats, you have finished the setting up! You can now try the app in Slack, enjoy quiz-zing!
 
 ## Note for teachers
-The following shows the tables that will be set up in MySQL (some sample data is included). Take note of the primary and foreign keys, for example, to set a question in ```QUESTIONS```, it's set_id must be an existing id in ```QUESTION_SET```. <br/>
-![database modelling](./image/database.jpg)
+The following shows the tables that will be set up in MySQL in Step 13 of 'Setting up'.(some sample data is included). Take note of the primary and foreign keys, for example, to set a question in ```QUESTIONS```, it's set_id must be an existing id in ```QUESTION_SET```. <br/>
+![database modelling](./image/database.jpg) <br/>
 It is advisable to use numbers to denote set ids, question ids and option ids. An example would be ```set_id``` being ```1```, ```question_id``` being ```101```as well as ```opt_id``` being ```101.1```, ```101.2```, ```101.3``` and ```101.4```.
 
 For the ```CONCEPTS``` table, no interface was created for it for the input of data. It was not included in ```/setquestions``` to prevent clutter. Entries can be inputted manually using any database tool like MySQL workbench.
