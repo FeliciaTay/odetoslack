@@ -119,7 +119,7 @@ Instructions: <br/>
     ("0", "10", "101", 'nil', "nil");
     ```
     The third field ```"101"``` is to be replaced by the question id of the first question inputted into the database. <br/>
-    This line of code is a dummy entry, which serves to act as a counter for ```submission_id```.
+    This line of code is a dummy entry, where the second field serves as a counter for ```submission_id```.
 
 14. Head to [this link](https://api.slack.com/apps) to start creating the Slack app. Pick 'From scratch' and give your app a name. Select the workspace to install the app to. 
 
